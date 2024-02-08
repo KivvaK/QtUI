@@ -18,7 +18,7 @@ pacman -S mingw-w64-x86_64-qt-creator
 Готово.
 
 ## FAQ
-**Q:** При попытке собрать проект Qt Creator выдаёт ошибку *"No CMake configuration for build type "Debug" found"*.
+**Q:** При попытке собрать проект Qt Creator выдаёт ошибку *"No CMake configuration for build type "Debug" found"*.  
 **A:** Вероятно, вместе с Qt Creator'ом по какой-то причине не установились компиляторы gcc и g++. Попробуйте закрыть Qt Creator, после чего в консоли MSYS2 установить недостающие компиляторы, набрав:
 ```
 pacman -S mingw-w64-x86_64-gcc
