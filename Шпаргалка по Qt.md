@@ -9,7 +9,7 @@ msgb.exec();
 ```
 
 ## QString
-**(в примерах leInput – виджет типа QLineEdit с objectName = leInput)**  
+**(В примерах leInput – виджет типа QLineEdit с objectName = leInput)**  
 
 1.	Преобразование из строки в число:
 ```cpp
@@ -40,7 +40,7 @@ for (int i = 0; i < parts.length();  i++) {
 }
 ```
 ## QListWidget
-**(в примерах lwList – виджет типа QListWidget с objectName = lwList)**  
+**(В примерах lwList – виджет типа QListWidget с objectName = lwList)**  
 
 1.	Очистка:
 ```cpp
@@ -77,7 +77,7 @@ QString s = ui->lwList->item(индекс)->text();
 ui->lwList->item(индекс)->setText(строка);
 ```
 ## QTableWidget
-**(в примерах twTable – виджет типа QTableWidget с objectName = twTable)**  
+**(В примерах twTable – виджет типа QTableWidget с objectName = twTable)**  
 
 1. Получить количество строк и столбцов:
 ```cpp
@@ -156,7 +156,7 @@ QComboBox* cb = dynamic_cast<QComboBox*>(ui->twTable->cellWidget(номер ст
 QString variant = cb->currentText();
 ```
 ## QComboBox
-**(в примерах cbxVariants – виджет типа QComboBox с objectName = cbxVariants)**  
+**(В примерах cbxVariants – виджет типа QComboBox с objectName = cbxVariants)**  
 
 1. Программно вставить элементы:
 ```cpp
