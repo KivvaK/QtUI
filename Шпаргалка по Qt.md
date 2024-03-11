@@ -2,7 +2,7 @@
 ## QMessageBox (Всплывающее окно с сообщением)
 ```cpp
 #include <QMessageBox>
-…
+// ...
 QMessageBox msgb;
 msgb.setText(text);
 msgb.exec();
@@ -58,6 +58,7 @@ int index = ui->lwFIO->currentIndex().row();
 // или
 int index = ui->lwList->currentRow();
 ```
+**Примечание.** Если никакой элемент не был выбран, вернётся значение -1.
 5.	Установить/снять выделение строки:
 ```cpp
 ui->lwList->item(индекс строки)->setSelected(true/false);
@@ -104,3 +105,111 @@ if (!ui->twTable->item(i, j))
 ui->twTable->horizontalHeader()->setSectionResizeMode(режим);
 ```
 Режим может быть: [QHeaderView::Interactive, QHeaderView::Fixed, QHeaderView::Stretch или QHeaderView::ResizeToContents](https://doc.qt.io/qt-5/qheaderview.html#ResizeMode-enum)
+5. Проверить, был ли выбран элемент таблицы:
+```cpp
+if (ui->twTable->selectionModel()->hasSelection()) {
+	// ...
+}
+```
+6. Получить номер строки последнего выбранного элемента:
+```cpp
+int row = ui->twTable->selectionModel()->currentIndex().row();
+// или
+int row = ui->twTable->currentIndex().row();
+// или
+int row = ui->twTable->currentRow();
+```
+**Примечание.** Если никакой элемент не был выбран, вернётся значение -1.
+#QTableWidget7
+7. Вставить виджет в ячейку таблицы:
+```cpp
+ui->twTable->setCellWidget(номер строки, номер столбца, виджет);
+```
+Например, можно создать экземпляр [QComboBox](#QComboBox) и вставить его в ячейку таблицы:
+```cpp
+#include <QComboBox>
+// ...
+QComboBox* cb = new QComboBox();
+cb->addItems(QString("Пн,Вт,Ср,Чт,Пт,Сб,Вс").split(","));
+iu->twTable->setCellWidget(0, 2, cb);	// Вставит cb в нулевую строку, второй столбец
+```
+**Примечание.** После подобной вставки владельцем вставленного виджета оказывается twTable, и она управляет жизненным циклом
+вставленного виджета, поэтому явно вызывать *delete* для виджета, вставленного в ячейку таблицы, не нужно.
+8. Обратиться к виджету в ячейке таблицы:
+```cpp
+Тип_виджета* widget = dynamic_cast<тип_виджета*>(ui->twTable->cellWidget(номер строки, номер столбца));
+```
+Например, получить текст выбранного варианта в [QComboBox](#QComboBox) в ячейке таблицы [(см. пункт 7)](#QTableWidget7):
+```cpp
+#include <QComboBox>
+// ...
+QComboBox* cb = dynamic_cast<QComboBox*>(ui->twTable->cellWidget(номер строки, номер столбца));
+QString variant = cb->currentText();
+```
+#QComboBox
+## QComboBox (в примерах cbxVariants – виджет типа QComboBox с objectName = cbxVariants)
+#QComboBox1
+1. Программно вставить элементы:
+```cpp
+// ui->cbxVariants->insertItems(номер позиции для вставки, список вставляемых элементов в виде QStringList);
+// Пример: вставка списка дней недели в начало cbxVariants
+ui->cbxVariants->insertItems(0, QString("Пн,Вт,Ср,Чт,Пт,Сб,Вс").split(","));
+```
+**Примечание.** Можно также заполнить список элементов прямо в редакторе Qt Creator, дважды щёлкнув на cbxVariants.
+2. Очистка:
+```cpp
+ui->cbxVariants->clear();
+```
+3. Добавить элементы в конец:
+```cpp
+// Добавить один элемент в конец
+ui->cbxVariants->addItem(строка);
+// Добавить несколько элементов в конец
+ui->cbxVariants->addItems(список добавляемых элементов в виде QStringList);
+```
+**Примечание.** Получить QStringList можно, например, из QString при помощи split [(см. пункт 1)](#QComboBox1).
+4. Получить номер выбранного элемента:
+```cpp
+int num = ui->cbxVariants->currentIndex();
+```
+5. Получить текст выбранного элемента:
+```cpp
+QString variant = ui->cbxVariants->currentText();
+```
+6. Программно сделать элемент выбранным:
+```cpp
+// Сделать выбранным элемент с определённым индексом
+ui->cbxVariants->setCurrentIndex(индекс выбираемого элемента);
+// Сделать выбранным элемент с определённым текстом
+ui->cbxVariants->setCurrentText(текст выбираемого элемента);
+```
+7. Получить текст элемента по его индексу:
+```cpp
+QString variant = ui->cbxVariants->itemText(индекс);
+```
+8. Задать текст элемента по его индексу:
+```cpp
+ui->cbxVariants->setItemText(индекс, строка);
+```
+## Главное меню программы
+1. Создание главного меню и добавление его пунктов:  
+Чтобы создать главное меню программы, в дизайнере Qt Creator, в верхней части создаваемого окна найдите надпись
+"Пишите здесь", поставьте туда курсор и введите название пункта меню (например, "Файл", "Правка", "Вид", и т.д.).
+Аналогично можно заполнить пункты выпадающего меню.  
+2. Создание слота для сигнала нажатия на пункт меню:  
+В нижней части дизайнера найдите вкладку "Редактор действий". Если вкладки внизу нет, нажмите правой кнопкой мыши
+на светло-серую полосу внизу экрана или на окно свойств виджетов справа снизу и отметьте "Редактор действий". В "Редакторе
+действий" нажмите правой кнопкой мыши на соответствующее действие, нажмите "Перейти к слоту..." и выберите triggered().
+## Файловый диалог
+1. Предоставление пользователю интерфейса выбора имени файла для чтения:
+```cpp
+#include <QFileDialog>
+// ...
+QString fileName = QFileDialog::getOpenFileName();
+```
+2. Предоставление пользователю интерфейса выбора имени файла для записи: 
+```cpp
+#include <QFileDialog>
+// ...
+QString fileName = QFileDialog::getSaveFileName();
+```
