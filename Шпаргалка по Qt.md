@@ -8,7 +8,9 @@ msgb.setText(text);
 msgb.exec();
 ```
 
-## QString (в примерах leInput – виджет типа QLineEdit с objectName = leInput)
+## QString
+**(в примерах leInput – виджет типа QLineEdit с objectName = leInput)**  
+
 1.	Преобразование из строки в число:
 ```cpp
 QString s = ui->leInput->text();
@@ -37,7 +39,9 @@ for (int i = 0; i < parts.length();  i++) {
 	// что-то делаем с parts[i], которые являются QString
 }
 ```
-## QListWidget (в примерах lwList – виджет типа QListWidget с objectName = lwList)
+## QListWidget
+**(в примерах lwList – виджет типа QListWidget с objectName = lwList)**  
+
 1.	Очистка:
 ```cpp
 ui->lwList->clear();
@@ -72,7 +76,9 @@ QString s = ui->lwList->item(индекс)->text();
 ```cpp
 ui->lwList->item(индекс)->setText(строка);
 ```
-## QTableWidget (в примерах twTable – виджет типа QTableWidget с objectName = twTable)
+## QTableWidget
+**(в примерах twTable – виджет типа QTableWidget с objectName = twTable)**  
+
 1. Получить количество строк и столбцов:
 ```cpp
 int rowCount = ui->twTable->rowCount();
@@ -149,7 +155,9 @@ iu->twTable->setCellWidget(0, 2, cb);	// Вставит cb в нулевую с�
 QComboBox* cb = dynamic_cast<QComboBox*>(ui->twTable->cellWidget(номер строки, номер столбца));
 QString variant = cb->currentText();
 ```
-## QComboBox (в примерах cbxVariants – виджет типа QComboBox с objectName = cbxVariants)
+## QComboBox
+**(в примерах cbxVariants – виджет типа QComboBox с objectName = cbxVariants)**  
+
 1. Программно вставить элементы:
 ```cpp
 // ui->cbxVariants->insertItems(номер позиции для вставки, список вставляемых элементов в виде QStringList);
