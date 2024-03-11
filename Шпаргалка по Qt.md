@@ -58,7 +58,7 @@ int index = ui->lwFIO->currentIndex().row();
 // или
 int index = ui->lwList->currentRow();
 ```
-**Примечание.** Если никакой элемент не был выбран, вернётся значение -1.
+**Примечание.** Если никакой элемент не был выбран, вернётся значение -1.  
 5.	Установить/снять выделение строки:
 ```cpp
 ui->lwList->item(индекс строки)->setSelected(true/false);
@@ -104,7 +104,7 @@ if (!ui->twTable->item(i, j))
 ```cpp
 ui->twTable->horizontalHeader()->setSectionResizeMode(режим);
 ```
-Режим может быть: [QHeaderView::Interactive, QHeaderView::Fixed, QHeaderView::Stretch или QHeaderView::ResizeToContents](https://doc.qt.io/qt-5/qheaderview.html#ResizeMode-enum)
+Режим может быть: [QHeaderView::Interactive, QHeaderView::Fixed, QHeaderView::Stretch или QHeaderView::ResizeToContents](https://doc.qt.io/qt-5/qheaderview.html#ResizeMode-enum)  
 5. Проверить, был ли выбран элемент таблицы:
 ```cpp
 if (ui->twTable->selectionModel()->hasSelection()) {
@@ -119,13 +119,12 @@ int row = ui->twTable->currentIndex().row();
 // или
 int row = ui->twTable->currentRow();
 ```
-**Примечание.** Если никакой элемент не был выбран, вернётся значение -1.
-#QTableWidget7
+**Примечание.** Если никакой элемент не был выбран, вернётся значение -1.  
 7. Вставить виджет в ячейку таблицы:
 ```cpp
 ui->twTable->setCellWidget(номер строки, номер столбца, виджет);
 ```
-Например, можно создать экземпляр [QComboBox](#QComboBox) и вставить его в ячейку таблицы:
+Например, можно создать экземпляр QComboBox(см. ниже) и вставить его в ячейку таблицы:
 ```cpp
 #include <QComboBox>
 // ...
@@ -134,28 +133,26 @@ cb->addItems(QString("Пн,Вт,Ср,Чт,Пт,Сб,Вс").split(","));
 iu->twTable->setCellWidget(0, 2, cb);	// Вставит cb в нулевую строку, второй столбец
 ```
 **Примечание.** После подобной вставки владельцем вставленного виджета оказывается twTable, и она управляет жизненным циклом
-вставленного виджета, поэтому явно вызывать *delete* для виджета, вставленного в ячейку таблицы, не нужно.
+вставленного виджета, поэтому явно вызывать *delete* для виджета, вставленного в ячейку таблицы, не нужно.  
 8. Обратиться к виджету в ячейке таблицы:
 ```cpp
 Тип_виджета* widget = dynamic_cast<тип_виджета*>(ui->twTable->cellWidget(номер строки, номер столбца));
 ```
-Например, получить текст выбранного варианта в [QComboBox](#QComboBox) в ячейке таблицы [(см. пункт 7)](#QTableWidget7):
+Например, получить текст выбранного варианта в QComboBox(см. ниже) в ячейке таблицы (см. пункт 7):
 ```cpp
 #include <QComboBox>
 // ...
 QComboBox* cb = dynamic_cast<QComboBox*>(ui->twTable->cellWidget(номер строки, номер столбца));
 QString variant = cb->currentText();
 ```
-#QComboBox
 ## QComboBox (в примерах cbxVariants – виджет типа QComboBox с objectName = cbxVariants)
-#QComboBox1
 1. Программно вставить элементы:
 ```cpp
 // ui->cbxVariants->insertItems(номер позиции для вставки, список вставляемых элементов в виде QStringList);
 // Пример: вставка списка дней недели в начало cbxVariants
 ui->cbxVariants->insertItems(0, QString("Пн,Вт,Ср,Чт,Пт,Сб,Вс").split(","));
 ```
-**Примечание.** Можно также заполнить список элементов прямо в редакторе Qt Creator, дважды щёлкнув на cbxVariants.
+**Примечание.** Можно также заполнить список элементов прямо в редакторе Qt Creator, дважды щёлкнув на cbxVariants.  
 2. Очистка:
 ```cpp
 ui->cbxVariants->clear();
@@ -167,7 +164,7 @@ ui->cbxVariants->addItem(строка);
 // Добавить несколько элементов в конец
 ui->cbxVariants->addItems(список добавляемых элементов в виде QStringList);
 ```
-**Примечание.** Получить QStringList можно, например, из QString при помощи split [(см. пункт 1)](#QComboBox1).
+**Примечание.** Получить QStringList можно, например, из QString при помощи split (см. пункт 1).  
 4. Получить номер выбранного элемента:
 ```cpp
 int num = ui->cbxVariants->currentIndex();
