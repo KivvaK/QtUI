@@ -7,7 +7,13 @@
 ## Установка Qt Creator
 1.	Скопируйте команду ниже, вставьте её в **командную строку MSYS2**:
 ```shell script
-echo Y | pacman -S mingw-w64-x86_64-qt-creator && echo Y | pacman -S mingw-w64-x86_64-gdb && echo Y | pacman -S mingw-w64-x86_64-cmake&& echo Y | pacman -S mingw-w64-x86_64-ninja && echo Y | pacman -S mingw-w64-x86_64-gcc && echo Y | pacman -S mingw-w64-x86_64-make && echo Y | pacman -S mingw-w64-x86_64-clang
+echo Y | pacman -S mingw-w64-x86_64-qt-creator && \
+echo Y | pacman -S mingw-w64-x86_64-gdb && \
+echo Y | pacman -S mingw-w64-x86_64-cmake && \
+echo Y | pacman -S mingw-w64-x86_64-ninja && \
+echo Y | pacman -S mingw-w64-x86_64-gcc && \
+echo Y | pacman -S mingw-w64-x86_64-make && \
+echo Y | pacman -S mingw-w64-x86_64-clang
 ```
 2.	И нажмите «Enter».
 3.	Дождитесь окончания установки.
