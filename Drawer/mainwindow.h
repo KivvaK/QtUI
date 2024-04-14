@@ -35,6 +35,8 @@ private slots:
     void on_mouseMove(const QPointF& pos);
     void on_mouseWheel(int delta);
 
+    void on_pbClear_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -97,3 +97,10 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+void MainWindow::on_pbClear_clicked()
+{
+    clear(image);
+    pmi->setPixmap(image);
+}
+
