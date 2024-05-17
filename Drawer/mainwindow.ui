@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>1021</width>
+    <height>632</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -70,6 +70,21 @@
        </layout>
       </item>
       <item>
+       <widget class="QCheckBox" name="cbxAnimatedFloodFill">
+        <property name="font">
+         <font>
+          <pointsize>14</pointsize>
+         </font>
+        </property>
+        <property name="text">
+         <string>Анимация заливки</string>
+        </property>
+        <property name="tristate">
+         <bool>false</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -107,7 +122,7 @@
        </font>
       </property>
       <property name="text">
-       <string>Рисование курсором мыши. Изменение толщины линии - колёсиком мыши.</string>
+       <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Рисование курсором мыши. Изменение толщины линии - колёсиком мыши.&lt;/p&gt;&lt;p&gt;Заливка - правая кнопка мыши.&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
       </property>
       <property name="alignment">
        <set>Qt::AlignCenter</set>
@@ -121,7 +136,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>1021</width>
      <height>22</height>
     </rect>
    </property>

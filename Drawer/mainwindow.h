@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QGraphicsPixmapItem>
 #include <QPen>
+#include <QTimer>
+#include <stack>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -15,6 +17,11 @@ class MainWindow : public QMainWindow
 
     QGraphicsPixmapItem* pmi;
     QPixmap image;
+    QImage floodImg;
+    QTimer timer;
+    std::stack<QPoint> stack;
+    QColor background, floodColor;
+    bool floodInProgress = false;
 
     bool leftPressed = false;
     QPoint prev;   // Предыдущее положение курсора мыши в координатах сцены
@@ -36,8 +43,10 @@ private slots:
     void on_mouseWheel(int delta);
 
     void on_pbClear_clicked();
+    void on_timeout();
 
 private:
     Ui::MainWindow *ui;
+    void floodFill(QPixmap& pixmap, const QPoint& start, const QColor& color);
 };
 #endif // MAINWINDOW_H

@@ -17,11 +17,54 @@ void drawLine(QPixmap& image,
     p.drawLine(start, end);
 }
 
+void floodFillStep(QImage& img, std::stack<QPoint>& stack,
+                   const QColor& background, const QColor& color) {
+    int w1 = img.width() - 1, h1 = img.height() - 1;
+
+    QPoint p = stack.top();
+    stack.pop();
+
+    for (int y = std::max(p.y() - 1, 0); y <= std::min(p.y() + 1, h1); y++)
+        for (int x = std::max(p.x() - 1, 0); x <= std::min(p.x() + 1, w1); x++) {
+            QPoint neighbour(x, y);
+            if (img.pixelColor(neighbour) == background) {
+                img.setPixelColor(neighbour, color);
+                stack.push(neighbour);
+            }
+        }
+}
+
+// Заливка
+void MainWindow::floodFill(QPixmap& pixmap, const QPoint& start, const QColor& color) {
+    floodImg = pixmap.toImage();
+
+    background = floodImg.pixelColor(start);
+    if (background != color) {
+        stack = std::stack<QPoint>();
+
+        floodImg.setPixelColor(start, color);
+        stack.push(start);
+
+        if (ui->cbxAnimatedFloodFill->checkState() == Qt::Checked) {
+            floodColor = color;
+            timer.start();
+        }
+        else {
+            while (!stack.empty())
+                floodFillStep(floodImg, stack, background, color);
+
+            pixmap = QPixmap::fromImage(floodImg);
+            floodInProgress = false;
+        }
+    }
+}
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    timer.setInterval(1);
 
     image = QPixmap(800, 600);
     clear(image);
@@ -52,6 +95,11 @@ MainWindow::MainWindow(QWidget *parent)
         ui->gvDrawer, &MouseGraphicsView::mouseWheel,
         this, &MainWindow::on_mouseWheel
     );
+
+    connect(
+        &timer, &QTimer::timeout,
+        this, &MainWindow::on_timeout
+    );
 }
 
 // Реализуем обработку сигналов мыши в слотах
@@ -69,6 +117,15 @@ void MainWindow::on_mouseDown(const QPointF& pos, Qt::MouseButton button) {
 void MainWindow::on_mouseUp(const QPointF& pos, Qt::MouseButton button) {
     if (button == Qt::MouseButton::LeftButton)
         leftPressed = false;
+    else
+        if (button == Qt::MouseButton::RightButton && !floodInProgress) {
+            floodInProgress = true;
+
+            floodFill(image,
+                      ui->gvDrawer->mapToScene(pos.toPoint()).toPoint(),
+                      QColor("Lime"));
+            pmi->setPixmap(image);
+        }
 }
 
 void MainWindow::on_mouseMove(const QPointF& pos) {
@@ -104,3 +161,14 @@ void MainWindow::on_pbClear_clicked()
     pmi->setPixmap(image);
 }
 
+void MainWindow::on_timeout() {
+    if (!stack.empty()) {
+        floodFillStep(floodImg, stack, background, floodColor);
+        pmi->setPixmap(QPixmap::fromImage(floodImg));
+    }
+    else {
+        timer.stop();
+        image = QPixmap::fromImage(floodImg);
+        floodInProgress = false;
+    }
+}
