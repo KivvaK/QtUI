@@ -1,0 +1,11 @@
+# ninja log v5
+16	1186	7380199755868271	FloatingHorizon_autogen/timestamp	492f87f700c2d385
+16	1186	7380199755868271	FloatingHorizon_autogen/mocs_compilation.cpp	492f87f700c2d385
+16	1186	7380199755868271	D:/Projects/QtUI/build-FloatingHorizon-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/FloatingHorizon_autogen/timestamp	492f87f700c2d385
+16	1186	7380199755868271	D:/Projects/QtUI/build-FloatingHorizon-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/FloatingHorizon_autogen/mocs_compilation.cpp	492f87f700c2d385
+1213	1944	7380199764488287	CMakeFiles/FloatingHorizon.dir/surfaces.cpp.obj	9fcbd8e6eb44cd80
+1231	1992	7380199764958284	CMakeFiles/FloatingHorizon.dir/camera.cpp.obj	490a9b9bc6cb0a12
+1194	5688	7380199801918270	CMakeFiles/FloatingHorizon.dir/main.cpp.obj	debb6609ed12322a
+1186	5971	7380199804728318	CMakeFiles/FloatingHorizon.dir/FloatingHorizon_autogen/mocs_compilation.cpp.obj	33aada9adf2d56b3
+1203	7503	7380199820068277	CMakeFiles/FloatingHorizon.dir/mainwindow.cpp.obj	c79d8b6cd8c4e3bc
+7504	8027	7380199825208261	FloatingHorizon.exe	d2b974f209f613ca

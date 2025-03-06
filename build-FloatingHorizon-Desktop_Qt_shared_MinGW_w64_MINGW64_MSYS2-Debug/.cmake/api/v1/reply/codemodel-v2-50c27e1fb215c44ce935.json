@@ -1,0 +1,79 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-Debug-4ea070f026adf72f7ccd.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.16"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"name" : "Debug",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "FloatingHorizon",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "FloatingHorizon::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FloatingHorizon-Debug-17432bacc1e55878b1d3.json",
+					"name" : "FloatingHorizon",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "FloatingHorizon_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FloatingHorizon_autogen-Debug-74af88b9137ebe5d188d.json",
+					"name" : "FloatingHorizon_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "FloatingHorizon_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-FloatingHorizon_autogen_timestamp_deps-Debug-91d83c79b80667cc0cd8.json",
+					"name" : "FloatingHorizon_autogen_timestamp_deps",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "D:/Projects/QtUI/build-FloatingHorizon-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug",
+		"source" : "D:/Projects/QtUI/FloatingHorizon"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 5
+	}
+}
