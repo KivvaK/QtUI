@@ -1,9 +1,0 @@
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/Drawer.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/edit_cache.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/rebuild_cache.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/list_install_components.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/install.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/install/local.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/install/strip.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/Drawer_autogen_timestamp_deps.dir
-D:/Projects/QtUI/build-Drawer-Desktop_Qt_shared_MinGW_w64_MINGW64_MSYS2-Debug/CMakeFiles/Drawer_autogen.dir
